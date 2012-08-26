@@ -18,8 +18,14 @@
     "holt-winters",
     "smoothing",
     "forecast",
-    "exponential smoothing"
+    "exponential smoothing",
+    "time series",
+    "analysis"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thick/Nostradamus.js.git"
+  },
   "author": "thick",
 	"license": "MIT"
 }
