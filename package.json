@@ -1,0 +1,25 @@
+{
+  "name": "nostradamus",
+  "version": "0.1.0",
+  "description": "Holt-Winters triple exponential smoothing algorithm (for time series forecasting)",
+  "main": "index.js",
+  "devDependencies": {
+  	"benchmark": ">= 1.0.0"
+  },
+  "directories": {
+    "lib": "./lib",
+    "benchmark": "./bench",
+    "test": "./test"
+  },
+  "scripts": {
+    "test": "./test/test"
+  },
+  "keywords": [
+    "holt-winters",
+    "smoothing",
+    "forecast",
+    "exponential smoothing"
+  ],
+  "author": "thick",
+	"license": "MIT"
+}

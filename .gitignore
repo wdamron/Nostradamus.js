@@ -1,0 +1,6 @@
+.DS_Store
+./bench/.DS_Store
+./lib/.DS_Store
+./test/.DS_Store
+./test/include/.DS_Store
+./node_modules

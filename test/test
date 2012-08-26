@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+var testNormal = require('./include/normal'),
+	testMemoize = require('./include/memoize');
+
+testNormal();
+testMemoize();
+console.log('\nTests complete.\n');
