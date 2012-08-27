@@ -35,7 +35,7 @@ Option 1:
 	  , predictions = [];
 	
 	predictions = forecast(data, alpha, beta, gamma, period, m);
-	// -> [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 594.8043646513713, 357.12171044215734, …]
+	// -> [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 594.8043646513713, 357.12171044215734, ...]
 	
 ---
 
@@ -46,8 +46,7 @@ Option 2:
 	// the same # of data, same params (alpha, beta, etc.),
 	// and you need to throw tons of data at it
 	
-	var setupForecast = require('nostradamus').memo  // note the (dot)memo
-	  , forecast
+	var forecast = require('nostradamus')
 	  , data = [
 	  	  362, 385, 432, 341, 382, 409,
 		  498, 387, 473, 513, 582, 474,
@@ -56,7 +55,7 @@ Option 2:
 	    ]
 	  , predictions = [];
 	  
-	forecast = setupForecast({
+	forecast = forecast.memo({
 	  length: data.length,
 	  alpha: 0.5,  // overall smoothing component
 	  beta: 0.4,   // trend smoothing component
@@ -66,17 +65,17 @@ Option 2:
 	});
 	
 	predictions = forecast(data);
-	// -> [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 594.8043646513713, 357.12171044215734, …]
+	// -> [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 594.8043646513713, 357.12171044215734, ...]
 	
-	forecast([…]);
-	forecast([…]);
-	forecast([…]);
-	…
+	forecast([...]);
+	forecast([...]);
+	forecast([...]);
+	...
 	
 ---
 
 Some rules your parameters must abide by:
-  - `alpha >= 0.0 && alpha >= 1.0`
+  - `alpha >= 0.0 && alpha <= 1.0`
   - `beta >= 0.0 && beta <= 1.0`
   - `gamma >= 0.0 && gamma <= 1.0`
   - `m > 0`
