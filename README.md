@@ -19,58 +19,62 @@
 
 Option 1:
 
-	// plain-vanilla
-	var forecast = require('nostradamus')
-	  , data = [
-	  	  362, 385, 432, 341, 382, 409,
-		  498, 387, 473, 513, 582, 474,
-		  544, 582, 681, 557, 628, 707,
-		  773, 592, 627, 725, 854, 661
-	    ]
-	  , alpha = 0.5  // overall smoothing component
-	  , beta = 0.4   // trend smoothing component
-	  , gamma = 0.6  // seasonal smoothing component
-	  , period = 4   // # of observations per season
-	  , m = 4        // # of future observations to forecast
-	  , predictions = [];
-	
-	predictions = forecast(data, alpha, beta, gamma, period, m);
-	// -> [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 594.8043646513713, 357.12171044215734, ...]
+"""js
+// plain-vanilla
+var forecast = require('nostradamus')
+  , data = [
+  	  362, 385, 432, 341, 382, 409,
+	  498, 387, 473, 513, 582, 474,
+	  544, 582, 681, 557, 628, 707,
+	  773, 592, 627, 725, 854, 661
+    ]
+  , alpha = 0.5  // overall smoothing component
+  , beta = 0.4   // trend smoothing component
+  , gamma = 0.6  // seasonal smoothing component
+  , period = 4   // # of observations per season
+  , m = 4        // # of future observations to forecast
+  , predictions = [];
+
+predictions = forecast(data, alpha, beta, gamma, period, m);
+// -> [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 594.8043646513713, 357.12171044215734, ...]
+"""
 	
 ---
 
 Option 2:
 
-	// faster w/ reuse of internal arrays
-	// if you know you'll be feeding it
-	// the same # of data, same params (alpha, beta, etc.),
-	// and you need to throw tons of data at it
-	
-	var forecast = require('nostradamus')
-	  , data = [
-	  	  362, 385, 432, 341, 382, 409,
-		  498, 387, 473, 513, 582, 474,
-		  544, 582, 681, 557, 628, 707,
-		  773, 592, 627, 725, 854, 661
-	    ]
-	  , predictions = [];
-	  
-	forecast = forecast.memo({
-	  length: data.length,
-	  alpha: 0.5,  // overall smoothing component
-	  beta: 0.4,   // trend smoothing component
-	  gamma: 0.6,  // seasonal smoothing component
-	  period: 4,   // # of observations per season
-	  m: 4         // # of future observations to forecase
-	});
-	
-	predictions = forecast(data);
-	// -> [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 594.8043646513713, 357.12171044215734, ...]
-	
-	forecast([...]);
-	forecast([...]);
-	forecast([...]);
-	...
+"""js
+// faster w/ reuse of internal arrays
+// if you know you'll be feeding it
+// the same # of data, same params (alpha, beta, etc.),
+// and you need to throw tons of data at it
+
+var forecast = require('nostradamus')
+  , data = [
+  	  362, 385, 432, 341, 382, 409,
+	  498, 387, 473, 513, 582, 474,
+	  544, 582, 681, 557, 628, 707,
+	  773, 592, 627, 725, 854, 661
+    ]
+  , predictions = [];
+  
+forecast = forecast.memo({
+  length: data.length,
+  alpha: 0.5,  // overall smoothing component
+  beta: 0.4,   // trend smoothing component
+  gamma: 0.6,  // seasonal smoothing component
+  period: 4,   // # of observations per season
+  m: 4         // # of future observations to forecase
+});
+
+predictions = forecast(data);
+// -> [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 594.8043646513713, 357.12171044215734, ...]
+
+forecast([...]);
+forecast([...]);
+forecast([...]);
+...
+"""
 	
 ---
 
