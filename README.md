@@ -19,7 +19,7 @@
 
 Option 1:
 
-"""js
+```js
 // plain-vanilla
 var forecast = require('nostradamus')
   , data = [
@@ -37,13 +37,13 @@ var forecast = require('nostradamus')
 
 predictions = forecast(data, alpha, beta, gamma, period, m);
 // -> [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 594.8043646513713, 357.12171044215734, ...]
-"""
+```
 	
 ---
 
 Option 2:
 
-"""js
+```js
 // faster w/ reuse of internal arrays
 // if you know you'll be feeding it
 // the same # of data, same params (alpha, beta, etc.),
@@ -74,7 +74,7 @@ forecast([...]);
 forecast([...]);
 forecast([...]);
 ...
-"""
+```
 	
 ---
 
