@@ -1,7 +1,5 @@
 # Nostradamus.js
 
----
-
 ### -- is a [time-series](http://en.wikipedia.org/wiki/Time_series) [forecasting](http://en.wikipedia.org/wiki/Forecasting#Time_series_methods) tool for [Node.js](http://nodejs.org)
 
 ### -- uses [triple exponential smoothing](http://www.itl.nist.gov/div898/handbook/pmc/section4/pmc435.htm) via the [Holt-Winters](http://www.it.iitb.ac.in/~praj/acads/seminar/04329008_ExponentialSmoothing.pdf) approach
@@ -16,11 +14,8 @@
 ## Installation
 `$ npm install nostradamus`
 
----
 
 ## Usage
-
----
 
 **Option 1**
 
@@ -43,8 +38,6 @@ var forecast = require('nostradamus')
 predictions = forecast(data, alpha, beta, gamma, period, m);
 // -> [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 594.8043646513713, 357.12171044215734, ...]
 ```
-  
----
 
 **Option 2**
 
@@ -80,8 +73,6 @@ forecast([...]);
 forecast([...]);
 ...
 ```
-  
----
 
 **Rules**
 
@@ -91,8 +82,6 @@ Some rules your parameters must abide by:
   - `gamma >= 0.0 && gamma <= 1.0`
   - `m > 0`
   - `m <= period`
-  
----
 
 ### `module.exports` = `function(data, alpha, beta, gamma, period, m)`
 - `data` {**Array**} series of input (numbers) from which a forecast should be made
@@ -117,13 +106,11 @@ Some rules your parameters must abide by:
 
 In the main directory of this module: `$ npm test`
 
----
 
 ## Credit
 
 This project would't exist, if not for the versions written in [Go](https://github.com/datastream/holtwinters/) and [Java](https://github.com/nchandra/ExponentialSmoothing). Thanks!
 
----
 
 ## License
 
